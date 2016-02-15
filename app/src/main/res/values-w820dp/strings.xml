@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="menuRestaurants">Restaurants</string>
+    <string name="menuViewOnMaps">View on Maps</string>
+    <string name="menuAbout">About</string>
+    <string name="appName">FIAP Food</string>
+    <string name="appSlogan">Restaurants</string>
+    <string name="tvAppDescHome">FIAP Food - Criado por: Thiago Teixeira Nogueira - RM 49824</string>
+
+    <string name="search_hint">Search</string>
+</resources>
