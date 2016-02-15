@@ -21,9 +21,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <!--
     <include layout="@layout/content_main" />
-    -->
 
     <FrameLayout
         android:id="@+id/fragment_container"

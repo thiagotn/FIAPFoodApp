@@ -2,6 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_main" android:icon="@android:drawable/ic_menu_myplaces"
+            android:title="@string/menuHome" />
         <item android:id="@+id/nav_restaurants" android:icon="@android:drawable/ic_menu_myplaces"
             android:title="@string/menuRestaurants" />
         <item android:id="@+id/nav_viewonmap" android:icon="@android:drawable/ic_menu_mapmode"

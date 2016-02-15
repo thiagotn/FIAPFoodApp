@@ -12,6 +12,7 @@ import android.view.MenuItem;
 
 import cc.thiago.fiapfoodapp.R;
 import cc.thiago.fiapfoodapp.view.fragments.AboutFragment;
+import cc.thiago.fiapfoodapp.view.fragments.MainFragment;
 import cc.thiago.fiapfoodapp.view.fragments.MapsFragment;
 import cc.thiago.fiapfoodapp.view.fragments.RestaurantsFragment;
 
@@ -27,6 +28,13 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //Set the fragment initially
+        MainFragment fragment = new MainFragment();
+        android.support.v4.app.FragmentTransaction fragmentTransaction =
+                getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -83,7 +91,15 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_restaurants) {
+        if (id == R.id.nav_main) {
+
+            MainFragment fragment = new MainFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
+
+        } else if (id == R.id.nav_restaurants) {
 
             RestaurantsFragment fragment = new RestaurantsFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =

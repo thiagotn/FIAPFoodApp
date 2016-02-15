@@ -1,18 +1,43 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="cc.thiago.fiapfoodapp.view.fragments.MainFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
+
+    <Button
+        android:id="@+id/btAddRestaurant"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="HOME"
-        android:padding="8dp"
-        android:textColor="#fff"
-        android:background="@color/colorPrimary"
-        android:textSize="28sp"
-        android:id="@+id/textView"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:text="@string/btAddRestaurant"/>
+
+    <Button
+        android:id="@+id/btListRestaurants"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/btListRestaurants"
+        android:layout_below="@+id/btAddRestaurant"/>
+
+    <Button
+        android:id="@+id/btViewMaps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/btViewOnMaps"
+        android:layout_below="@+id/btListRestaurants"/>
+
+    <Button
+        android:id="@+id/btAbout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/btAbout"
+        android:layout_below="@+id/btViewMaps"/>
 
 </RelativeLayout>

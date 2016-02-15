@@ -6,6 +6,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_about">About</string>
+    <string name="menuHome">Home</string>
     <string name="menuRestaurants">Restaurants</string>
     <string name="menuViewOnMaps">View on Maps</string>
     <string name="menuAbout">About</string>
@@ -16,5 +17,9 @@
     <string name="tvAppDescHome">FIAP Food - Criado por: Thiago Teixeira Nogueira - RM 49824</string>
 
     <string name="search_hint">Search</string>
+    <string name="btListRestaurants">List Restaurants</string>
+    <string name="btAbout">About</string>
+    <string name="btAddRestaurant">Add Restaurant</string>
+    <string name="btViewOnMaps">View on Maps</string>
 
 </resources>

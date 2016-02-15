@@ -1,6 +1,7 @@
 package cc.thiago.fiapfoodapp.view.search;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -60,12 +61,13 @@ public class RestaurantRecyclerViewAdapter extends RealmSearchAdapter<Restaurant
     }
 
     @Override
-    public void onBindFooterViewHolder(ViewHolder holder, int position) {
+    public void onBindFooterViewHolder(ViewHolder holder, final int position) {
         super.onBindFooterViewHolder(holder, position);
         holder.itemView.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        Log.i("INFO", "onBindFooterViewHolder position: " + position);
                     }
                 }
         );

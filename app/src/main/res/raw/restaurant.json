@@ -3,7 +3,7 @@
     "id": "5a0370b0-d3a8-11e5-ab30-625662870761",
     "name":"Famiglia Mancini",
     "phone":"(11) 3256-4320",
-    "type":"não sei",
+    "type":"Restaurante Italiano",
     "averageCost":100.00,
     "description":"Com objetos, queijos e garrafas de vinho pendurados no teto, a trattoria tem imensa mesa de antipastos a peso.",
     "localization":"-23.5503284,-46.6451453"
@@ -12,9 +12,9 @@
     "id": "5a0374a2-d3a8-11e5-ab30-625662870761",
     "name":"Mori Sushi Ohta",
     "phone":"(11) 3898-2977",
-    "type":"não sei",
+    "type":"Restaurante Japonês",
     "averageCost":80.00,
-    "description":"TÃ©cnica apurada & qualidade no preparo e apresentação de composições sofisticadas em ambiente sereno japones.",
+    "description":"Técnica apurada & qualidade no preparo e apresentação de composições sofisticadas em ambiente sereno japones.",
     "localization":"-23.5631161,-46.6707659"
   },
   {
