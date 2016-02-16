@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">FIAP Food</string>
-    <string name="title_activity_main">FIAP Food</string>
+    <string name="app_name" translatable="false">FIAP Food</string>
+    <string name="title_activity_main" translatable="false">FIAP Food</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="label_user">User</string>
     <string name="label_password">Password</string>
+    <string name="hint_password" translatable="false">admin</string>
+    <string name="hint_user" translatable="false">admin</string>
     <string name="label_confirm_password">Confirm Password</string>
     <string name="label_sign">Or</string>
     <string name="bt_login">Login</string>
@@ -20,12 +22,12 @@
     <string name="menuRestaurants">Restaurants</string>
     <string name="menuViewOnMaps">View on Maps</string>
     <string name="menuAbout">About</string>
-    <string name="appName">FIAP Food</string>
+    <string name="appName" translatable="false">FIAP Food</string>
     <string name="appSlogan">Restaurants</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="tvAppDescHome">FIAP Food - Criado por:</string>
-    <string name="tvAppDescAuthor">Thiago Teixeira Nogueira - RM 49824</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="tvAppDescHome">FIAP Food - Develop by:</string>
+    <string name="tvAppDescAuthor" translatable="false">Thiago Teixeira Nogueira - RM 49824</string>
 
     <string name="search_hint">Search</string>
     <string name="btListRestaurants">List Restaurants</string>
@@ -39,5 +41,4 @@
     <string name="hintDescription">Description</string>
     <string name="hintAverageCost">Average Cost</string>
     <string name="action_logout">Logout</string>
-
 </resources>

@@ -2,20 +2,18 @@
 <merge
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-        android:id="@+id/emoji"
-        android:layout_width="50dp"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_centerVertical="true"
-        android:text="emoji"
-        />
+        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:src="@drawable/applogo" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:layout_toRightOf="@id/emoji">
+        android:layout_toRightOf="@id/imageView">
 
         <TextView
             android:id="@+id/name"

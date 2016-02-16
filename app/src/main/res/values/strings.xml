@@ -7,6 +7,8 @@
 
     <string name="label_user">User</string>
     <string name="label_password">Password</string>
+    <string name="hint_password">admin</string>
+    <string name="hint_user">admin</string>
     <string name="label_confirm_password">Confirm Password</string>
     <string name="label_sign">Or</string>
     <string name="bt_login">Login</string>

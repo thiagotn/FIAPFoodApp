@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_about">Sobre</string>
+    <string name="action_logout">Sair</string>
+    <string name="appSlogan">Restaurantes</string>
+    <string name="btAbout">Sobre</string>
+    <string name="btAddRestaurant">Adicionar Restaurante</string>
+    <string name="btListRestaurants">Listar Restaurante</string>
+    <string name="btViewOnMaps">Visualizar no Mapa</string>
+    <string name="bt_login">Acessar</string>
+    <string name="bt_logout">Sair</string>
+    <string name="bt_signin">Cadastrar</string>
+    <string name="etRestaurantName">Nome</string>
+    <string name="hintAverageCost">Preço médio</string>
+    <string name="hintDescription">Descrição</string>
+    <string name="hintPhone">Telefone</string>
+    <string name="hintRestaurant">Restaurante</string>
+    <string name="hintRestaurantType">Tipo</string>
+    <string name="label_confirm_password">Confirme a senha</string>
+    <string name="label_password">Senha</string>
+    <string name="label_sign">Ou</string>
+    <string name="label_user">Usuário</string>
+    <string name="menuAbout">Sobre</string>
+    <string name="menuHome">Início</string>
+    <string name="menuRestaurants">Restaurantes</string>
+    <string name="menuViewOnMaps">Visualizar no Mapa</string>
+    <string name="msg_invalid_login">Usuário ou senha inválidos</string>
+    <string name="navigation_drawer_close">Fechar Navegação</string>
+    <string name="navigation_drawer_open">Abrir Navegação</string>
+    <string name="search_hint">Pesquisar</string>
+    <string name="tvAppDescHome">FIAP Food - Desenvolvido por:</string>
+</resources>

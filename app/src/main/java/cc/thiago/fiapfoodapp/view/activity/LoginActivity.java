@@ -19,12 +19,13 @@ public class LoginActivity extends AppCompatActivity {
     EditText etPassword;
     Button btLogin;
     Button btSign;
+    boolean logged;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        logged = false;
         etUser = (EditText) findViewById(R.id.et_user);
         etPassword = (EditText) findViewById(R.id.et_password);
         btLogin = (Button) findViewById(R.id.bt_login);
@@ -34,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
                 Log.i("LOG", "Acao de Login.");
                 // validate login and go to fragment main
                 if (isValidLogin()) {
+                    logged = true;
                     Log.i("LOG", "Login eh valido. Tentando ir para MainActivity");
                     Intent i = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(i);
@@ -60,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
         String password = etPassword.getText().toString();
 
         if ("admin".equalsIgnoreCase(user)
-                || "123".equalsIgnoreCase(password)) {
+                || "admin".equalsIgnoreCase(password)) {
 
             Log.i("LOG", "Login valid: user: '" + user + "' password: '" + password + "'.");
 
@@ -69,5 +71,31 @@ public class LoginActivity extends AppCompatActivity {
 
         Log.i("LOG", "Login invalid");
         return false;
+    }
+
+    private void checkLogin() {
+        if (logged) {
+            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(i);
+        }
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        checkLogin();
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        checkLogin();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        checkLogin();
     }
 }
