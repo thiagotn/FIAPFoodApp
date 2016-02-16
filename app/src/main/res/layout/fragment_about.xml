@@ -25,6 +25,12 @@
             android:textAlignment="center"
             android:text="@string/tvAppDescHome" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@string/tvAppDescAuthor" />
+
     </LinearLayout>
 
 </RelativeLayout>

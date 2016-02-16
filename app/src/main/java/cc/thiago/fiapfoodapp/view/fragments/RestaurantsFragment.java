@@ -20,11 +20,14 @@ import java.util.Random;
 import java.util.UUID;
 
 import cc.thiago.fiapfoodapp.R;
+import cc.thiago.fiapfoodapp.app.SimpleRealmApp;
 import cc.thiago.fiapfoodapp.model.Restaurant;
 import cc.thiago.fiapfoodapp.view.search.RestaurantRecyclerViewAdapter;
 import co.moonmonkeylabs.realmsearchview.RealmSearchView;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
+import io.realm.RealmQuery;
+import io.realm.RealmResults;
 
 
 /**
@@ -50,8 +53,8 @@ public class RestaurantsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         Log.i("LOG", "onCreateView: Started.");
-        resetRealm();
-        loadRestaurantData();
+
+        verifyLoadData();
 
         View view = inflater.inflate(R.layout.search, container, false);
 
@@ -78,6 +81,16 @@ public class RestaurantsFragment extends Fragment {
         if (realm != null) {
             realm.close();
             realm = null;
+        }
+    }
+
+    private void verifyLoadData() {
+        Realm realm = Realm.getInstance(SimpleRealmApp.getInstance());
+        RealmQuery<Restaurant> query = realm.where(Restaurant.class);
+        RealmResults<Restaurant> results = query.findAll();
+        if (results == null || results.size() == 0) {
+            //resetRealm();
+            loadRestaurantData();
         }
     }
 

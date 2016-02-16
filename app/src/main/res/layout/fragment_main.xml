@@ -5,39 +5,57 @@
     tools:context="cc.thiago.fiapfoodapp.view.fragments.MainFragment">
 
 
-    <Button
-        android:id="@+id/btAddRestaurant"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/btAddRestaurant"/>
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btListRestaurants"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/btListRestaurants"
-        android:layout_below="@+id/btAddRestaurant"/>
+        <Button
+            android:id="@+id/btAddRestaurant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/btAddRestaurant"/>
 
-    <Button
-        android:id="@+id/btViewMaps"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/btViewOnMaps"
-        android:layout_below="@+id/btListRestaurants"/>
+        <Button
+            android:id="@+id/btListRestaurants"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/btListRestaurants"
+            android:layout_below="@+id/btAddRestaurant"/>
 
-    <Button
-        android:id="@+id/btAbout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/btAbout"
-        android:layout_below="@+id/btViewMaps"/>
+        <Button
+            android:id="@+id/btViewMaps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/btViewOnMaps"
+            android:layout_below="@+id/btListRestaurants"/>
+
+        <Button
+            android:id="@+id/btAbout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/btAbout"
+            android:layout_below="@+id/btViewMaps"/>
+
+        <Button
+            android:id="@+id/btLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/bt_logout"
+            android:layout_below="@+id/btAbout"/>
+
+    </LinearLayout>
 
 </RelativeLayout>

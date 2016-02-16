@@ -1,5 +1,6 @@
 package cc.thiago.fiapfoodapp.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -122,6 +123,11 @@ public class MainActivity extends AppCompatActivity
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
+
+        } else if (id == R.id.nav_logout) {
+
+            Intent i = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(i);
 
         }
 

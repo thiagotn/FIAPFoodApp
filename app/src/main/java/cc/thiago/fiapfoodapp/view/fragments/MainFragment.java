@@ -1,6 +1,7 @@
 package cc.thiago.fiapfoodapp.view.fragments;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import cc.thiago.fiapfoodapp.R;
+import cc.thiago.fiapfoodapp.view.activity.LoginActivity;
+import cc.thiago.fiapfoodapp.view.activity.MainActivity;
 
 public class MainFragment extends Fragment {
 
@@ -17,6 +20,7 @@ public class MainFragment extends Fragment {
     Button listRestaurantButton;
     Button viewOnMapsButton;
     Button aboutButton;
+    Button logoutButton;
 
     public MainFragment() {
         // Required empty public constructor
@@ -32,7 +36,7 @@ public class MainFragment extends Fragment {
         addRestaurantButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MapsFragment fragment = new MapsFragment();
+                AddRestaurantFragment fragment = new AddRestaurantFragment();
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment); // FIX
                 fragmentTransaction.commit();
@@ -69,6 +73,17 @@ public class MainFragment extends Fragment {
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
+            }
+        });
+
+        logoutButton = (Button) rootView.findViewById(R.id.btLogout);
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(getActivity(), LoginActivity.class);
+                startActivity(i);
+
             }
         });
 

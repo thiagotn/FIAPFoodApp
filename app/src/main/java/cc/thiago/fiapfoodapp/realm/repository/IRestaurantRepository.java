@@ -1,5 +1,7 @@
 package cc.thiago.fiapfoodapp.realm.repository;
 
+import java.util.List;
+
 import cc.thiago.fiapfoodapp.model.Restaurant;
 import io.realm.RealmResults;
 
@@ -8,33 +10,13 @@ import io.realm.RealmResults;
  */
 public interface IRestaurantRepository {
 
-    interface OnAddRestaurantCallback {
-        void onSuccess();
-        void onError(String message);
-    }
+    void addRestaurant(Restaurant restaurant);
 
-    interface OnGetAllRestaurantCallback {
-        void onSuccess(RealmResults<Restaurant> universities);
-        void onError(String message);
-    }
+    void deleteRestaurantById(String Id);
 
-    interface OnGetRestaurantByIdCallback {
-        void onSuccess(Restaurant university);
-        void onError(String message);
-    }
+    void deleteRestaurantByPosition(int position);
 
-    interface OnDeleteRestaurantCallback {
-        void onSuccess();
-        void onError(String message);
-    }
+    RealmResults<Restaurant>getAllRestaurants();
 
-    void addRestaurant(Restaurant restaurant, OnAddRestaurantCallback callback);
-
-    void deleteRestaurantById(String Id, OnDeleteRestaurantCallback callback);
-
-    void deleteRestaurantByPosition(int position, OnDeleteRestaurantCallback callback);
-
-    void getAllRestaurants(OnGetAllRestaurantCallback callback);
-
-    void getRestaurantById(String id, OnGetRestaurantByIdCallback callback);
+    Restaurant getRestaurantById(String id);
 }

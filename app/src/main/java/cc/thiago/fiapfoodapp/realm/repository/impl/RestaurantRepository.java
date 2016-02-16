@@ -16,7 +16,7 @@ import io.realm.RealmResults;
 public class RestaurantRepository implements IRestaurantRepository {
 
     @Override
-    public void addRestaurant(Restaurant restaurant, OnAddRestaurantCallback callback) {
+    public void addRestaurant(Restaurant restaurant) {
         Realm realm = Realm.getInstance(SimpleRealmApp.getInstance());
         realm.beginTransaction();
         Restaurant r = realm.createObject(Restaurant.class);
@@ -28,52 +28,39 @@ public class RestaurantRepository implements IRestaurantRepository {
         r.setDescription(restaurant.getDescription());
         r.setLocalization(restaurant.getLocalization());
         realm.commitTransaction();
-
-        if (callback != null)
-            callback.onSuccess();
     }
 
     @Override
-    public void deleteRestaurantById(String Id, OnDeleteRestaurantCallback callback) {
+    public void deleteRestaurantById(String Id) {
         Realm realm = Realm.getInstance(SimpleRealmApp.getInstance());
         realm.beginTransaction();
         Restaurant restaurant = realm.where(Restaurant.class).equalTo(RealmTable.ID, Id).findFirst();
         restaurant.removeFromRealm();
         realm.commitTransaction();
-
-        if (callback != null)
-            callback.onSuccess();
     }
 
     @Override
-    public void deleteRestaurantByPosition(int position, OnDeleteRestaurantCallback callback) {
+    public void deleteRestaurantByPosition(int position) {
         Realm realm = Realm.getInstance(SimpleRealmApp.getInstance());
         realm.beginTransaction();
         RealmQuery<Restaurant> query = realm.where(Restaurant.class);
         RealmResults<Restaurant> results = query.findAll();
         results.remove(position);
         realm.commitTransaction();
-
-        if (callback != null)
-            callback.onSuccess();
     }
 
     @Override
-    public void getAllRestaurants(OnGetAllRestaurantCallback callback) {
+    public RealmResults<Restaurant> getAllRestaurants() {
         Realm realm = Realm.getInstance(SimpleRealmApp.getInstance());
         RealmQuery<Restaurant> query = realm.where(Restaurant.class);
         RealmResults<Restaurant> results = query.findAll();
-
-        if (callback != null)
-            callback.onSuccess(results);
+        return results;
     }
 
     @Override
-    public void getRestaurantById(String id, OnGetRestaurantByIdCallback callback) {
+    public Restaurant getRestaurantById(String id) {
         Realm realm = Realm.getInstance(SimpleRealmApp.getInstance());
         Restaurant result = realm.where(Restaurant.class).equalTo(RealmTable.ID, id).findFirst();
-
-        if (callback != null)
-            callback.onSuccess(result);
+        return result;
     }
 }

@@ -12,4 +12,11 @@
             android:title="@string/menuAbout" />
     </group>
 
+    <item android:title="Profile">
+        <menu>
+            <item android:id="@+id/nav_logout" android:icon="@android:drawable/presence_offline"
+                android:title="@string/action_logout" />
+        </menu>
+    </item>
+
 </menu>

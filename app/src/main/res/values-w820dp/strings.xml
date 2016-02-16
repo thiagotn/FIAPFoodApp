@@ -1,16 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">FIAP Food</string>
+    <string name="title_activity_main">FIAP Food</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="label_user">User</string>
+    <string name="label_password">Password</string>
+    <string name="label_confirm_password">Confirm Password</string>
+    <string name="label_sign">Or</string>
+    <string name="bt_login">Login</string>
+    <string name="bt_logout">Logout</string>
+    <string name="bt_signin">Sign in</string>
+    <string name="msg_invalid_login">Invalid user or password</string>
+
+    <string name="action_about">About</string>
     <string name="menuHome">Home</string>
     <string name="menuRestaurants">Restaurants</string>
     <string name="menuViewOnMaps">View on Maps</string>
     <string name="menuAbout">About</string>
     <string name="appName">FIAP Food</string>
     <string name="appSlogan">Restaurants</string>
-    <string name="tvAppDescHome">FIAP Food - Criado por: Thiago Teixeira Nogueira - RM 49824</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tvAppDescHome">FIAP Food - Criado por:</string>
+    <string name="tvAppDescAuthor">Thiago Teixeira Nogueira - RM 49824</string>
 
     <string name="search_hint">Search</string>
     <string name="btListRestaurants">List Restaurants</string>
     <string name="btAbout">About</string>
     <string name="btAddRestaurant">Add Restaurant</string>
     <string name="btViewOnMaps">View on Maps</string>
+    <string name="hintRestaurant">Restaurant</string>
+    <string name="etRestaurantName">Name</string>
+    <string name="hintRestaurantType">Type</string>
+    <string name="hintPhone">Phone</string>
+    <string name="hintDescription">Description</string>
+    <string name="hintAverageCost">Average Cost</string>
+    <string name="action_logout">Logout</string>
+
 </resources>
