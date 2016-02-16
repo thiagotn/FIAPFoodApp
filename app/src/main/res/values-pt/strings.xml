@@ -9,7 +9,7 @@
     <string name="btViewOnMaps">Visualizar no Mapa</string>
     <string name="bt_login">Acessar</string>
     <string name="bt_logout">Sair</string>
-    <string name="bt_signin">Cadastrar</string>
+    <string name="bt_signin">Cadastrar-se</string>
     <string name="etRestaurantName">Nome</string>
     <string name="hintAverageCost">Preço médio</string>
     <string name="hintDescription">Descrição</string>
