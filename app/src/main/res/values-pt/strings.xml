@@ -5,7 +5,7 @@
     <string name="appSlogan">Restaurantes</string>
     <string name="btAbout">Sobre</string>
     <string name="btAddRestaurant">Adicionar Restaurante</string>
-    <string name="btListRestaurants">Listar Restaurante</string>
+    <string name="btListRestaurants">Listar Restaurantes</string>
     <string name="btViewOnMaps">Visualizar no Mapa</string>
     <string name="bt_login">Acessar</string>
     <string name="bt_logout">Sair</string>
