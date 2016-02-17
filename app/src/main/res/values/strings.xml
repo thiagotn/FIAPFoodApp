@@ -40,5 +40,12 @@
     <string name="hintDescription">Description</string>
     <string name="hintAverageCost">Average Cost</string>
     <string name="action_logout">Logout</string>
+    <string name="title_activity_camera" translatable="false">FIAP Food</string>
+    <string name="take_picture">Take a picture</string>
+    <string name="camera_not_supported">Device without cam</string>
+    <string name="action_cam_cancelled">Action to take a picture cancelled</string>
+    <string name="action_cam_failed">Action to take a picture failed</string>
+    <string name="action_cam_save_img_failed">Action to Save the picture failed.</string>
+    <string name="btAddPhoto">Add a picture</string>
 
 </resources>

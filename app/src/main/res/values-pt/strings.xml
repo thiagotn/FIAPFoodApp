@@ -29,4 +29,10 @@
     <string name="navigation_drawer_open">Abrir Navegação</string>
     <string name="search_hint">Pesquisar</string>
     <string name="tvAppDescHome">FIAP Food - Desenvolvido por:</string>
+    <string name="take_picture">Tira uma foto</string>
+    <string name="camera_not_supported">Aparelho não possui camera</string>
+    <string name="action_cam_cancelled">Ação para tirar a foto foi cancelada</string>
+    <string name="action_cam_failed">Ação para tirar a foto falhou</string>
+    <string name="action_cam_save_img_failed">Ação para salvar a imagem falhou</string>
+    <string name="btAddPhoto">Adicione uma foto</string>
 </resources>

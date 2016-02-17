@@ -5,87 +5,115 @@
     android:layout_below="@+id/toolbar"
     tools:context="cc.thiago.fiapfoodapp.view.fragments.AddRestaurantFragment">
 
-        <TextView
-            android:id="@+id/tv_add_restaurant"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:text="@string/hintRestaurant"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+    <Button
+        android:id="@+id/bt_add_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/btAddPhoto" />
 
-        <EditText
-            android:layout_marginTop="15dp"
-            android:id="@+id/et_restaurant_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/tv_add_restaurant"
-            android:hint="@string/etRestaurantName" />
+    <!-- Display para mostrar a foto tirada -->
+    <ImageView
+        android:id="@+id/ivPreview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_below="@+id/bt_add_photo"/>
 
-        <EditText
-            android:layout_marginTop="15dp"
-            android:id="@+id/et_restaurant_type"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/et_restaurant_name"
-            android:hint="@string/hintRestaurantType" />
+    <EditText
+        android:layout_marginTop="15dp"
+        android:id="@+id/et_restaurant_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/ivPreview"
+        android:hint="@string/etRestaurantName" />
 
-        <EditText
-            android:layout_marginTop="15dp"
-            android:id="@+id/et_restaurant_desc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/et_restaurant_type"
-            android:hint="@string/hintDescription" />
+    <EditText
+        android:layout_marginTop="15dp"
+        android:id="@+id/et_restaurant_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/et_restaurant_name"
+        android:hint="@string/hintRestaurantType" />
 
-        <EditText
-            android:layout_marginTop="15dp"
-            android:id="@+id/et_restaurant_cost"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/et_restaurant_desc"
-            android:hint="@string/hintAverageCost"
-            android:inputType="numberDecimal"/>
+    <EditText
+        android:layout_marginTop="15dp"
+        android:id="@+id/et_restaurant_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/et_restaurant_type"
+        android:hint="@string/hintDescription" />
 
-        <EditText
-            android:layout_marginTop="15dp"
-            android:id="@+id/et_restaurant_phone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/et_restaurant_cost"
-            android:hint="@string/hintPhone"
-            android:inputType="phone"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_below="@+id/et_restaurant_desc"
+        android:id="@+id/layout2Fields">
 
-        <Button
-            android:id="@+id/bt_add_restaurant"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/et_restaurant_phone"
-            android:text="@string/btAddRestaurant" />
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <EditText
+                android:layout_marginTop="15dp"
+                android:id="@+id/et_restaurant_cost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:hint="@string/hintAverageCost"
+                android:inputType="numberDecimal"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <EditText
+                android:layout_marginTop="15dp"
+                android:id="@+id/et_restaurant_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:hint="@string/hintPhone"
+                android:inputType="phone"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bt_add_restaurant"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/layout2Fields"
+        android:text="@string/btAddRestaurant" />
 
 </RelativeLayout>
