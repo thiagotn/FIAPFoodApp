@@ -21,6 +21,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:textColor="#ff1a1a"
             android:text="nome"
             />
 

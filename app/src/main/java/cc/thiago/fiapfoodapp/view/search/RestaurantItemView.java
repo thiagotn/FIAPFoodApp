@@ -1,6 +1,12 @@
 package cc.thiago.fiapfoodapp.view.search;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -23,6 +29,9 @@ public class RestaurantItemView extends RelativeLayout {
     @Bind(R.id.description)
     TextView description;
 
+    @Bind(R.id.imageView)
+    ImageView imageView;
+
     public RestaurantItemView(Context context) {
         super(context);
         init(context);
@@ -37,5 +46,22 @@ public class RestaurantItemView extends RelativeLayout {
         name.setText(restaurant.getName());
         type.setText(restaurant.getType());
         description.setText(restaurant.getDescription());
+        if (!TextUtils.isEmpty(restaurant.getPathPhoto())) {
+            setPhoto(restaurant.getPathPhoto());
+        }
     }
+
+    private void setPhoto(String photoPath) {
+        try {
+            imageView.setVisibility(View.VISIBLE);
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            // Redimensionamento da imagem para não lançar exceção OutOfMemory para imagens muito grande
+            options.inSampleSize = 5;
+            final Bitmap bitmap = BitmapFactory.decodeFile(photoPath, options);
+            imageView.setImageBitmap(bitmap);
+        } catch(Exception e) {
+            Log.i("LOG", "Falha ao carregar imagem");
+        }
+    }
+
 }

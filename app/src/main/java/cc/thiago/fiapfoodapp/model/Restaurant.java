@@ -16,6 +16,7 @@ public class Restaurant extends RealmObject {
     private Double averageCost;
     private String description;
     private String localization;
+    private String pathPhoto;
 
     public Restaurant() {
 
@@ -79,5 +80,13 @@ public class Restaurant extends RealmObject {
 
     public void setLocalization(String localization) {
         this.localization = localization;
+    }
+
+    public String getPathPhoto() {
+        return pathPhoto;
+    }
+
+    public void setPathPhoto(String pathPhoto) {
+        this.pathPhoto = pathPhoto;
     }
 }

@@ -103,6 +103,7 @@ public class AddRestaurantFragment extends Fragment {
                     r.setType(restaurant.getType());
                     r.setAverageCost(restaurant.getAverageCost());
                     r.setDescription(restaurant.getDescription());
+                    r.setPathPhoto(restaurant.getPathPhoto());
                     //r.setLocalization(restaurant.getLocalization());
                     realm.commitTransaction();
 
@@ -118,6 +119,8 @@ public class AddRestaurantFragment extends Fragment {
         Bundle extra = this.getArguments();
         if (extra != null && !TextUtils.isEmpty(extra.getString(PHOTO_ID))) {
             String photoPath = extra.getString(PHOTO_ID);
+            restaurant.setPathPhoto(photoPath);
+            btAddPhoto.setVisibility(View.GONE);
             setPhoto(photoPath);
         }
 
@@ -132,8 +135,6 @@ public class AddRestaurantFragment extends Fragment {
             options.inSampleSize = 8;
             final Bitmap bitmap = BitmapFactory.decodeFile(photoPath, options);
             ivPreview.setImageBitmap(bitmap);
-            btAddPhoto.setVisibility(View.GONE);
-
         } catch(Exception e) {
             Log.i("LOG", "Falha ao carregar imagem");
         }
