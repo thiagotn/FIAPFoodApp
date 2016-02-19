@@ -47,9 +47,17 @@ public class RestaurantRecyclerViewAdapter extends RealmSearchAdapter<Restaurant
     }
 
     @Override
-    public void onBindRealmViewHolder(ViewHolder viewHolder, int position) {
+    public void onBindRealmViewHolder(ViewHolder viewHolder, final int position) {
         final Restaurant restaurant = realmResults.get(position);
         viewHolder.restaurantItemView.bind(restaurant);
+        viewHolder.itemView.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.i("INFO", "Restaurante clicado: " + position);
+                    }
+                }
+        );
     }
 
     @Override
