@@ -47,6 +47,7 @@ public class RestaurantItemView extends RelativeLayout {
         type.setText(restaurant.getType());
         description.setText(restaurant.getDescription());
         if (!TextUtils.isEmpty(restaurant.getPathPhoto())) {
+            Log.i("Foto", "PathPhoto: " + restaurant.getPathPhoto());
             setPhoto(restaurant.getPathPhoto());
         }
     }

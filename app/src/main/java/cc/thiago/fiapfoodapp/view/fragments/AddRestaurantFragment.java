@@ -87,6 +87,8 @@ public class AddRestaurantFragment extends Fragment {
 
         ivPreview = (ImageView) view.findViewById(R.id.ivPreview);
 
+        restaurant = new Restaurant();
+
         btAddRestaurant = (Button) view.findViewById(R.id.bt_add_restaurant);
         btAddRestaurant.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,6 +106,7 @@ public class AddRestaurantFragment extends Fragment {
                     r.setAverageCost(restaurant.getAverageCost());
                     r.setDescription(restaurant.getDescription());
                     r.setPathPhoto(restaurant.getPathPhoto());
+                    Log.i("Foto", "Set PathPhoto: " + r.getPathPhoto());
                     //r.setLocalization(restaurant.getLocalization());
                     realm.commitTransaction();
 
@@ -136,7 +139,7 @@ public class AddRestaurantFragment extends Fragment {
             final Bitmap bitmap = BitmapFactory.decodeFile(photoPath, options);
             ivPreview.setImageBitmap(bitmap);
         } catch(Exception e) {
-            Log.i("LOG", "Falha ao carregar imagem");
+            Log.i("Foto", "Falha ao carregar imagem");
         }
     }
 
@@ -176,7 +179,7 @@ public class AddRestaurantFragment extends Fragment {
             return false;
         }
 
-        restaurant = new Restaurant();
+
         restaurant.setName(name);
         restaurant.setType(type);
         restaurant.setDescription(description);
@@ -215,6 +218,7 @@ public class AddRestaurantFragment extends Fragment {
         if (type == MEDIA_TYPE_IMAGE) {
             mediaFile = new File(mediaStorageDir.getPath() + File.separator
                     + "IMG_" + timeStamp + ".jpg");
+            Log.i("FOTO", "MediaFile: " + mediaFile);
         } else {
             return null;
         }
@@ -278,6 +282,7 @@ public class AddRestaurantFragment extends Fragment {
             final Bitmap bitmap = BitmapFactory.decodeFile(fileUri.getPath(),
                     options);
             ivPreview.setImageBitmap(bitmap);
+            restaurant.setPathPhoto(fileUri.getPath());
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
