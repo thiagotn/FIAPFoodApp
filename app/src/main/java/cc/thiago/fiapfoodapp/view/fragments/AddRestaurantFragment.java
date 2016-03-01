@@ -135,7 +135,7 @@ public class AddRestaurantFragment extends Fragment {
             ivPreview.setVisibility(View.VISIBLE);
             BitmapFactory.Options options = new BitmapFactory.Options();
             // Redimensionamento da imagem para não lançar exceção OutOfMemory para imagens muito grande
-            options.inSampleSize = 8;
+            options.inSampleSize = 2;
             final Bitmap bitmap = BitmapFactory.decodeFile(photoPath, options);
             ivPreview.setImageBitmap(bitmap);
         } catch(Exception e) {

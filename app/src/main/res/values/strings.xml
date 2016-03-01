@@ -47,5 +47,6 @@
     <string name="action_cam_failed">Action to take a picture failed</string>
     <string name="action_cam_save_img_failed">Action to Save the picture failed.</string>
     <string name="btAddPhoto">Add a picture</string>
+    <string name="btBackToListRestaurant">Back</string>
 
 </resources>

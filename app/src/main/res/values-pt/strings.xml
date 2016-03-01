@@ -35,4 +35,5 @@
     <string name="action_cam_failed">Ação para tirar a foto falhou</string>
     <string name="action_cam_save_img_failed">Ação para salvar a imagem falhou</string>
     <string name="btAddPhoto">Adicione uma foto</string>
+    <string name="btBackToListRestaurant">Voltar</string>
 </resources>
