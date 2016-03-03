@@ -46,4 +46,5 @@
     <string name="btCancel">Cancel</string>
     <string name="tvConfirm">Confirm?</string>
     <string name="menuAddRestaurant">Add Restaurant</string>
+    <string name="btEditRestaurant">Edit</string>
 </resources>

@@ -31,6 +31,7 @@ public class ShowRestaurantFragment extends Fragment {
     TextView tvRestaurantAvgCost;
     TextView tvRestaurantPhoneNumber;
     Button btBackToRestaurants;
+    Button btEditRestaurant;
     Button btDeleteRestaurant;
     ImageView ivPreview;
 
@@ -68,6 +69,14 @@ public class ShowRestaurantFragment extends Fragment {
             }
         });
 
+        btEditRestaurant = (Button) view.findViewById(R.id.btEditRestaurant);
+        btEditRestaurant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editRestaurant(restaurantId);
+            }
+        });
+
         btDeleteRestaurant = (Button) view.findViewById(R.id.btDeleteRestaurant);
         btDeleteRestaurant.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +102,16 @@ public class ShowRestaurantFragment extends Fragment {
         Bundle bundle = new Bundle();
         bundle.putString("restaurantId", restaurantId);
         ConfirmDeleteFragment fragment = new ConfirmDeleteFragment();
+        fragment.setArguments(bundle);
+        android.support.v4.app.FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
+    }
+
+    private void editRestaurant(final String restaurantId) {
+        Bundle bundle = new Bundle();
+        bundle.putString("restaurantId", restaurantId);
+        EditRestaurantFragment fragment = new EditRestaurantFragment();
         fragment.setArguments(bundle);
         android.support.v4.app.FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container, fragment);
