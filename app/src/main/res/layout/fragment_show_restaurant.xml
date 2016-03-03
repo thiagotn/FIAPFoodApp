@@ -99,13 +99,45 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btBackToListRestaurant"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/layout2Fields"
-        android:text="@string/btBackToListRestaurant" />
+        android:layout_below="@+id/layout2Fields">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btBackToListRestaurant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/layout2Fields"
+                android:text="@string/btBackToListRestaurant" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btDeleteRestaurant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/layout2Fields"
+                android:text="@string/btDeleteRestaurant" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>

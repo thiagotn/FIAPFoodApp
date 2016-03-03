@@ -41,4 +41,8 @@
     <string name="hintDescription">Description</string>
     <string name="hintAverageCost">Average Cost</string>
     <string name="action_logout">Logout</string>
+    <string name="msgErrorLocation">Não foi possível determinar a localização atual</string>
+    <string name="btDeleteRestaurant">Delete</string>
+    <string name="btCancel">Cancel</string>
+    <string name="tvConfirm">Confirm?</string>
 </resources>

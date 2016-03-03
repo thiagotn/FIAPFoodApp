@@ -31,7 +31,10 @@ public class ShowRestaurantFragment extends Fragment {
     TextView tvRestaurantAvgCost;
     TextView tvRestaurantPhoneNumber;
     Button btBackToRestaurants;
+    Button btDeleteRestaurant;
     ImageView ivPreview;
+
+    private String restaurantId;
 
     private Realm realm;
 
@@ -45,6 +48,9 @@ public class ShowRestaurantFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_show_restaurant, container, false);
+
+        restaurantId = getArguments().getString("restaurantId");
+        Log.i("RestaurantId", "restaurantId: " + restaurantId);
 
         ivPreview = (ImageView) view.findViewById(R.id.ivPreview);
 
@@ -62,9 +68,15 @@ public class ShowRestaurantFragment extends Fragment {
             }
         });
 
+        btDeleteRestaurant = (Button) view.findViewById(R.id.btDeleteRestaurant);
+        btDeleteRestaurant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                confirmDeleteRestaurant(restaurantId);
+            }
+        });
+
         realm = Realm.getInstance(SimpleRealmApp.getInstance());
-        String restaurantId = getArguments().getString("restaurantId");
-        Log.i("RestaurantId", "restaurantId: " + restaurantId);
         loadRestaurant(restaurantId);
 
         return view;
@@ -72,6 +84,16 @@ public class ShowRestaurantFragment extends Fragment {
 
     private void listRestaurants() {
         RestaurantsFragment fragment = new RestaurantsFragment();
+        android.support.v4.app.FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
+    }
+
+    private void confirmDeleteRestaurant(final String restaurantId) {
+        Bundle bundle = new Bundle();
+        bundle.putString("restaurantId", restaurantId);
+        ConfirmDeleteFragment fragment = new ConfirmDeleteFragment();
+        fragment.setArguments(bundle);
         android.support.v4.app.FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container, fragment);
         fragmentTransaction.commit();

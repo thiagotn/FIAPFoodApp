@@ -2,11 +2,11 @@ package cc.thiago.fiapfoodapp.view.fragments;
 
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.location.Location;
-import android.location.LocationListener;
+
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -36,7 +36,7 @@ import io.realm.Realm;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AddRestaurantFragment extends Fragment implements LocationListener {
+public class AddRestaurantFragment extends Fragment {
 
     public static final String PHOTO_ID = "PHOTO_ID";
 
@@ -291,29 +291,5 @@ public class AddRestaurantFragment extends Fragment implements LocationListener 
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public void onLocationChanged(Location location) {
-        double latitude = location.getLatitude();
-        double longitude = location.getLongitude();
-        Log.i("Localizacao", "Latitude: " + latitude + " - Longitude: " + longitude);
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
-
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-
-    }
-
-    @Override
-    public void onProviderEnabled(String provider) {
-
-    }
-
-    @Override
-    public void onProviderDisabled(String provider) {
-
     }
 }

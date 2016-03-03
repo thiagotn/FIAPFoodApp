@@ -10,7 +10,6 @@
     tools:context="cc.thiago.fiapfoodapp.view.fragments.RestaurantsFragment">
 
     <co.moonmonkeylabs.realmsearchview.RealmSearchView
-        android:paddingTop="?android:attr/actionBarSize"
         android:id="@+id/search_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
