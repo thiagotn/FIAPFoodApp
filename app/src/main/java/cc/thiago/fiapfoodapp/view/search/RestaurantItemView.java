@@ -59,7 +59,9 @@ public class RestaurantItemView extends RelativeLayout {
             // Redimensionamento da imagem para não lançar exceção OutOfMemory para imagens muito grande
             options.inSampleSize = 5;
             final Bitmap bitmap = BitmapFactory.decodeFile(photoPath, options);
-            imageView.setImageBitmap(bitmap);
+            final Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, 72, 72, true);
+
+            imageView.setImageBitmap(scaledBitmap);
         } catch(Exception e) {
             Log.i("LOG", "Falha ao carregar imagem");
         }

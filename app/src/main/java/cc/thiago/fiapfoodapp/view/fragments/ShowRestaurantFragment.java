@@ -83,10 +83,9 @@ public class ShowRestaurantFragment extends Fragment {
         tvRestaurantName.setText(result.getName());
         tvRestaurantType.setText(result.getType());
         tvRestaurantDesc.setText(result.getDescription());
-        tvRestaurantAvgCost.setText(String.valueOf(result.getAverageCost()));
+        tvRestaurantAvgCost.setText("R$" + String.valueOf(result.getAverageCost()));
         tvRestaurantPhoneNumber.setText(result.getPhone());
         setPhoto(result.getPathPhoto());
-
     }
 
     private void setPhoto(String photoPath) {
