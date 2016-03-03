@@ -13,6 +13,7 @@ import android.view.MenuItem;
 
 import cc.thiago.fiapfoodapp.R;
 import cc.thiago.fiapfoodapp.view.fragments.AboutFragment;
+import cc.thiago.fiapfoodapp.view.fragments.AddRestaurantFragment;
 import cc.thiago.fiapfoodapp.view.fragments.MainFragment;
 import cc.thiago.fiapfoodapp.view.fragments.MapsFragment;
 import cc.thiago.fiapfoodapp.view.fragments.RestaurantsFragment;
@@ -95,6 +96,14 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_main) {
 
             MainFragment fragment = new MainFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
+
+        } else if (id == R.id.nav_add_restaurant) {
+
+            AddRestaurantFragment fragment = new AddRestaurantFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);

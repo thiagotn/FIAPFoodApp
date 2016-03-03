@@ -40,4 +40,5 @@
     <string name="btDeleteRestaurant">Excluir</string>
     <string name="btCancel">Cancelar</string>
     <string name="tvConfirm">Confirma?</string>
+    <string name="menuAddRestaurant">Adicionar Restaurante</string>
 </resources>
