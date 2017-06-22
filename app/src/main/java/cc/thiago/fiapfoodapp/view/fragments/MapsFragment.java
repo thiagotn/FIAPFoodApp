@@ -15,6 +15,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
@@ -33,7 +34,8 @@ import io.realm.RealmResults;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MapsFragment extends Fragment {
+public class MapsFragment extends Fragment implements
+        OnMapReadyCallback {
 
     MapView mMapView;
     private GoogleMap googleMap;
@@ -56,56 +58,8 @@ public class MapsFragment extends Fragment {
             e.printStackTrace();
         }
 
-        googleMap = mMapView.getMap();
+        mMapView.getMapAsync(this);
 
-        realm = Realm.getDefaultInstance();
-        RealmQuery<Restaurant> query = realm.where(Restaurant.class);
-        RealmResults<Restaurant> results = query.findAll();
-        Iterator iterator = results.iterator();
-        while(iterator.hasNext()){
-            Restaurant restaurant = (Restaurant) iterator.next();
-            String localization = restaurant.getLocalization();
-            if (TextUtils.isEmpty(localization)) {
-                continue;
-            }
-            String[] parts = localization.split(",");
-            Double latitude = Double.parseDouble(parts[0]);
-            Double longitude = Double.parseDouble(parts[1]);
-
-            Log.i("Maps", "Adicionando restaurante " + restaurant.getName()
-                    + " no Mapa. Lat: " + latitude
-                    + " - Long: " + longitude);
-
-            // create marker
-            MarkerOptions marker = new MarkerOptions()
-                    .position(new LatLng(latitude, longitude))
-                    .title(restaurant.getName());
-
-            // Changing marker icon
-            marker.icon(BitmapDescriptorFactory
-                    .defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
-
-            // adding marker
-            googleMap.addMarker(marker);
-
-            /*
-            */
-        }
-
-        // FIXME: CORRIGIR ISTO... NULLPOINTER
-        //googleMap.setMyLocationEnabled(true);
-        //Location location = googleMap.getMyLocation();
-        //LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-
-        // TODO: Temporario, ate a correcao acima
-        LatLng latLng = new LatLng(-23.573270, -46.623094);
-
-        CameraPosition cameraPosition = new CameraPosition.Builder()
-                .target(latLng).zoom(12).build();
-        googleMap.animateCamera(CameraUpdateFactory
-                .newCameraPosition(cameraPosition));
-
-        // Perform any camera updates here
         return v;
     }
 
@@ -131,5 +85,68 @@ public class MapsFragment extends Fragment {
     public void onLowMemory() {
         super.onLowMemory();
         mMapView.onLowMemory();
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        this.googleMap = googleMap;
+
+        addPointsToMap();
+
+        updateLocationOnMap();
+    }
+
+    private void addPointsToMap() {
+        realm = Realm.getDefaultInstance();
+        RealmQuery<Restaurant> query = realm.where(Restaurant.class);
+        RealmResults<Restaurant> results = query.findAll();
+        Log.i(MapsFragment.class.getSimpleName(), "Restaurantes recuperados: " + (results  != null ? results.size() : 0));
+        Iterator iterator = results.iterator();
+        while(iterator.hasNext()){
+            Restaurant restaurant = (Restaurant) iterator.next();
+            String localization = restaurant.getLocalization();
+            if (TextUtils.isEmpty(localization)) {
+                continue;
+            }
+            String[] parts = localization.split(",");
+            Double latitude = Double.parseDouble(parts[0]);
+            Double longitude = Double.parseDouble(parts[1]);
+
+            Log.i(MapsFragment.class.getSimpleName(), "Adicionando restaurante " + restaurant.getName()
+                    + " no Mapa. Lat: " + latitude
+                    + " - Long: " + longitude);
+
+            // create marker
+            MarkerOptions marker = new MarkerOptions()
+                    .position(new LatLng(latitude, longitude))
+                    .title(restaurant.getName());
+
+            // Changing marker icon
+            marker.icon(BitmapDescriptorFactory
+                    .defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
+
+            // adding marker
+            googleMap.addMarker(marker);
+        }
+    }
+
+    private void updateLocationOnMap() {
+        Log.i(MapsFragment.class.getSimpleName(), "Atualizando localizacao do usuario no mapa.");
+        // FIXME: CORRIGIR ISTO... NULLPOINTER
+        //googleMap.setMyLocationEnabled(true);
+        //Location location = googleMap.getMyLocation();
+        //LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+
+        // TODO: Temporario, ate a correcao acima
+        LatLng latLng = new LatLng(-23.573270, -46.623094);
+
+        if (googleMap != null) {
+            CameraPosition cameraPosition = new CameraPosition.Builder()
+                    .target(latLng).zoom(12).build();
+            googleMap.animateCamera(CameraUpdateFactory
+                    .newCameraPosition(cameraPosition));
+
+            // Perform any camera updates here
+        }
     }
 }
