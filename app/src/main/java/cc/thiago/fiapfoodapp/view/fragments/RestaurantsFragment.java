@@ -52,9 +52,9 @@ public class RestaurantsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.i("LOG", "onCreateView: Started.");
+        Log.i(RestaurantsFragment.class.getSimpleName(), "onCreateView: Started.");
 
-        verifyLoadData();
+        SimpleRealmApp.getInstance().verifyLoadData();
 
         View view = inflater.inflate(R.layout.search, container, false);
 
@@ -65,7 +65,7 @@ public class RestaurantsFragment extends Fragment {
         realmSearchView.setAdapter(adapter);
 
         // Inflate the layout for this fragment
-        Log.i("LOG", "onCreateView: Finished.");
+        Log.i(RestaurantsFragment.class.getSimpleName(), "onCreateView: Finished.");
         //return inflater.inflate(R.layout.fragment_restaurants, container, false);
         return view;
     }
@@ -84,54 +84,13 @@ public class RestaurantsFragment extends Fragment {
         }
     }
 
-    private void verifyLoadData() {
-        Realm realm = Realm.getDefaultInstance();
-        RealmQuery<Restaurant> query = realm.where(Restaurant.class);
-        RealmResults<Restaurant> results = query.findAll();
-        if (results == null || results.size() == 0) {
-            //resetRealm();
-            loadRestaurantData();
-        }
-    }
-
     private void resetRealm() {
-        Log.i("LOG", "resetRealm: Started.");
+        Log.i(RestaurantsFragment.class.getSimpleName(), "resetRealm: Started.");
         RealmConfiguration realmConfig = new RealmConfiguration
                 .Builder()
                 .deleteRealmIfMigrationNeeded()
                 .build();
         Realm.deleteRealm(realmConfig);
         Log.i("LOG", "resetRealm: Finished.");
-    }
-
-    private void loadRestaurantData() {
-        Log.i("LOG", "loadRestaurantData: Started.");
-        ObjectMapper objectMapper = new ObjectMapper();
-        JsonFactory jsonFactory = new JsonFactory();
-        try {
-            JsonParser jsonParserBlog =
-                    jsonFactory.createParser(getResources().openRawResource(R.raw.restaurant));
-            List<Restaurant> entries =
-                    objectMapper.readValue(jsonParserBlog, new TypeReference<List<Restaurant>>() {
-                    });
-
-            List<Restaurant> data = new ArrayList<>();
-
-            for (Restaurant r : entries) {
-                r.setId(UUID.randomUUID().toString());
-                Log.i("LOG", "Restaurant: name: " + r.getName() + " - type: " + r.getType() );
-                data.add(r);
-            }
-
-            Realm realm = Realm.getDefaultInstance();
-            realm.beginTransaction();
-            realm.copyToRealm(data);
-            realm.commitTransaction();
-            realm.close();
-        } catch (Exception e) {
-            Log.i("LOG", "Could not load blog data.");
-            throw new IllegalStateException("Could not load blog data.");
-        }
-        Log.i("LOG", "loadRestaurantData: Started.");
     }
 }

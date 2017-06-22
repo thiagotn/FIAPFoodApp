@@ -97,6 +97,7 @@ public class MapsFragment extends Fragment implements
     }
 
     private void addPointsToMap() {
+        SimpleRealmApp.getInstance().verifyLoadData();
         realm = Realm.getDefaultInstance();
         RealmQuery<Restaurant> query = realm.where(Restaurant.class);
         RealmResults<Restaurant> results = query.findAll();
