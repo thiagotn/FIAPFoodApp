@@ -17,7 +17,7 @@ public class RestaurantRepository implements IRestaurantRepository {
 
     @Override
     public void addRestaurant(Restaurant restaurant) {
-        Realm realm = Realm.getInstance(SimpleRealmApp.getInstance());
+        Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         Restaurant r = realm.createObject(Restaurant.class);
         r.setId(UUID.randomUUID().toString());
@@ -32,16 +32,16 @@ public class RestaurantRepository implements IRestaurantRepository {
 
     @Override
     public void deleteRestaurantById(String Id) {
-        Realm realm = Realm.getInstance(SimpleRealmApp.getInstance());
+        Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         Restaurant restaurant = realm.where(Restaurant.class).equalTo(RealmTable.ID, Id).findFirst();
-        restaurant.removeFromRealm();
+        restaurant.deleteFromRealm();
         realm.commitTransaction();
     }
 
     @Override
     public void deleteRestaurantByPosition(int position) {
-        Realm realm = Realm.getInstance(SimpleRealmApp.getInstance());
+        Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         RealmQuery<Restaurant> query = realm.where(Restaurant.class);
         RealmResults<Restaurant> results = query.findAll();
@@ -51,7 +51,7 @@ public class RestaurantRepository implements IRestaurantRepository {
 
     @Override
     public RealmResults<Restaurant> getAllRestaurants() {
-        Realm realm = Realm.getInstance(SimpleRealmApp.getInstance());
+        Realm realm = Realm.getDefaultInstance();
         RealmQuery<Restaurant> query = realm.where(Restaurant.class);
         RealmResults<Restaurant> results = query.findAll();
         return results;
@@ -59,7 +59,7 @@ public class RestaurantRepository implements IRestaurantRepository {
 
     @Override
     public Restaurant getRestaurantById(String id) {
-        Realm realm = Realm.getInstance(SimpleRealmApp.getInstance());
+        Realm realm = Realm.getDefaultInstance();
         Restaurant result = realm.where(Restaurant.class).equalTo(RealmTable.ID, id).findFirst();
         return result;
     }

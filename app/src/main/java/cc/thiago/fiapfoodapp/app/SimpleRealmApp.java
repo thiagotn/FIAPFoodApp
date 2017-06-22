@@ -3,6 +3,7 @@ package cc.thiago.fiapfoodapp.app;
 import android.app.Application;
 
 import cc.thiago.fiapfoodapp.realm.module.SimpleRealmModule;
+import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
 /**
@@ -16,9 +17,9 @@ public class SimpleRealmApp extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
+        Realm.init(instance.getApplicationContext());
         RealmConfiguration config = new RealmConfiguration
-                .Builder(getApplicationContext())
-                .setModules(new SimpleRealmModule())
+                .Builder()
                 .build();
     }
 

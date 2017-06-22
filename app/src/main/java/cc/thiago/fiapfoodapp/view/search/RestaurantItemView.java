@@ -10,7 +10,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import butterknife.Bind;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import cc.thiago.fiapfoodapp.R;
 import cc.thiago.fiapfoodapp.model.Restaurant;
@@ -20,16 +21,16 @@ import cc.thiago.fiapfoodapp.model.Restaurant;
  */
 public class RestaurantItemView extends RelativeLayout {
 
-    @Bind(R.id.name)
+    @BindView(R.id.name)
     TextView name;
 
-    @Bind(R.id.type)
+    @BindView(R.id.type)
     TextView type;
 
-    @Bind(R.id.description)
+    @BindView(R.id.description)
     TextView description;
 
-    @Bind(R.id.imageView)
+    @BindView(R.id.imageView)
     ImageView imageView;
 
     public RestaurantItemView(Context context) {

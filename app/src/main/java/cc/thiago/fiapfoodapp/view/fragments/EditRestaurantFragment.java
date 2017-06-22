@@ -62,7 +62,7 @@ public class EditRestaurantFragment extends Fragment {
                 if (isValidRestaurant()) {
                     // Realm insert
                     //restaurantRepository.addRestaurant(restaurant);
-                    realm = Realm.getInstance(SimpleRealmApp.getInstance());
+                    realm = Realm.getDefaultInstance();
                     Restaurant result = realm.where(Restaurant.class).equalTo(RealmTable.ID, restaurantId).findFirst();
                     realm.beginTransaction();
 
@@ -146,7 +146,7 @@ public class EditRestaurantFragment extends Fragment {
     }
 
     private void loadRestaurant(final String restaurantId) {
-        realm = Realm.getInstance(SimpleRealmApp.getInstance());
+        realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         Restaurant restaurant2 = realm.where(Restaurant.class).equalTo(RealmTable.ID, restaurantId).findFirst();
         realm.commitTransaction();

@@ -26,6 +26,7 @@ import cc.thiago.fiapfoodapp.R;
 import cc.thiago.fiapfoodapp.app.SimpleRealmApp;
 import cc.thiago.fiapfoodapp.model.Restaurant;
 import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import io.realm.RealmQuery;
 import io.realm.RealmResults;
 
@@ -57,7 +58,7 @@ public class MapsFragment extends Fragment {
 
         googleMap = mMapView.getMap();
 
-        realm = Realm.getInstance(SimpleRealmApp.getInstance());
+        realm = Realm.getDefaultInstance();
         RealmQuery<Restaurant> query = realm.where(Restaurant.class);
         RealmResults<Restaurant> results = query.findAll();
         Iterator iterator = results.iterator();
@@ -90,7 +91,6 @@ public class MapsFragment extends Fragment {
             /*
             */
         }
-
 
         // FIXME: CORRIGIR ISTO... NULLPOINTER
         //googleMap.setMyLocationEnabled(true);

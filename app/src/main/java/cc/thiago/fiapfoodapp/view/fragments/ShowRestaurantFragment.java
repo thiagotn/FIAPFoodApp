@@ -85,7 +85,7 @@ public class ShowRestaurantFragment extends Fragment {
             }
         });
 
-        realm = Realm.getInstance(SimpleRealmApp.getInstance());
+        realm = Realm.getDefaultInstance();
         loadRestaurant(restaurantId);
 
         return view;

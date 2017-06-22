@@ -101,7 +101,7 @@ public class AddRestaurantFragment extends Fragment {
                 if (isValidRestaurant()) {
                     // Realm insert
                     //restaurantRepository.addRestaurant(restaurant);
-                    realm = Realm.getInstance(SimpleRealmApp.getInstance());
+                    realm = Realm.getDefaultInstance();
                     realm.beginTransaction();
                     Restaurant r = realm.createObject(Restaurant.class);
                     r.setId(UUID.randomUUID().toString());

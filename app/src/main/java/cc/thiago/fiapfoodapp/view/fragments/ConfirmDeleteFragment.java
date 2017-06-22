@@ -62,11 +62,11 @@ public class ConfirmDeleteFragment extends Fragment {
     }
 
     private void deleteRestaurant(final String restaurantId) {
-        realm = Realm.getInstance(SimpleRealmApp.getInstance());
+        realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         Restaurant restaurant = realm.where(Restaurant.class).equalTo(RealmTable.ID, restaurantId).findFirst();
         // TODO: remover foto do sdcard
-        restaurant.removeFromRealm();
+        restaurant.deleteFromRealm();
         realm.commitTransaction();
     }
 

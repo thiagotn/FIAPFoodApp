@@ -60,7 +60,7 @@ public class RestaurantsFragment extends Fragment {
 
         realmSearchView = (RealmSearchView) view.findViewById(R.id.search_view);
 
-        realm = Realm.getInstance(getContext());
+        realm = Realm.getDefaultInstance();
         adapter = new RestaurantRecyclerViewAdapter(getContext(), realm, "name");
         realmSearchView.setAdapter(adapter);
 
@@ -85,7 +85,7 @@ public class RestaurantsFragment extends Fragment {
     }
 
     private void verifyLoadData() {
-        Realm realm = Realm.getInstance(SimpleRealmApp.getInstance());
+        Realm realm = Realm.getDefaultInstance();
         RealmQuery<Restaurant> query = realm.where(Restaurant.class);
         RealmResults<Restaurant> results = query.findAll();
         if (results == null || results.size() == 0) {
@@ -97,7 +97,7 @@ public class RestaurantsFragment extends Fragment {
     private void resetRealm() {
         Log.i("LOG", "resetRealm: Started.");
         RealmConfiguration realmConfig = new RealmConfiguration
-                .Builder(getContext())
+                .Builder()
                 .deleteRealmIfMigrationNeeded()
                 .build();
         Realm.deleteRealm(realmConfig);
@@ -123,7 +123,7 @@ public class RestaurantsFragment extends Fragment {
                 data.add(r);
             }
 
-            Realm realm = Realm.getInstance(getContext());
+            Realm realm = Realm.getDefaultInstance();
             realm.beginTransaction();
             realm.copyToRealm(data);
             realm.commitTransaction();
